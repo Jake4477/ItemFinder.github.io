@@ -5,17 +5,38 @@
 <title>ItemFinder</title>
 </head>
 
-<body>
+<body onload="launch()">
     
     <center>
         
         <div id = "backgroundC"></div>
-        <h1>Item Finder!</h1>
+        <h1 id = "title">Item Finder!</h1>
         <input type = "text" id = "item">
         <input type="button" id = "search" value="Search" onclick = "search()" />
     </center>
 
     <script>
+        function launch(){
+            var w = window.innerWidth;
+            var h = window.innerHeight; 
+            
+            var panel = document.getElementById("backgroundC");
+            var title = document.getElementById("title");
+            var button = document.getElementById("search");
+
+            if(w < 600){
+                //phone layout
+                
+                panel.style.position = "absolute";
+                panel.style.width = "80%";
+                panel.style.marginLeft = "7%";
+                panel.style.marginTop = "-10%";
+                title.style.marginTop = "30%";
+                button.style.width = "30%";
+
+            }
+
+        }
         function search(){
             var input = document.getElementById("item");
             alert("You entered: " + item.value);
